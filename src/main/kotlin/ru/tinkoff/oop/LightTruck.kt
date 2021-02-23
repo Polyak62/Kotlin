@@ -1,6 +1,6 @@
 package ru.tinkoff.oop
 
-class LightTruck(override val model: String, override val typeEngine: String) : Transport {
+class LightTruck(override val model: String, override val typeEngine: String) : Transport() {
 
 
     fun highway() {
@@ -8,6 +8,7 @@ class LightTruck(override val model: String, override val typeEngine: String) : 
     }
 
     override fun maintenance() {
-        "Техническое обслуживание ТС: Кап.ремонт двигателя, заваривание дыр, замена подвески ".prettyPrint()
-    }
+        printInfo()
+       println("Техническое обслуживание ТС: Кап.ремонт двигателя, заваривание дыр, замена подвески ")
+       }
 }

@@ -1,11 +1,14 @@
 package ru.tinkoff.oop
 
-class Truck(override val model: String, override val typeEngine: String, private var liftingCapacity: Int = 0) :
-    Transport {
+class Truck(override val model: String,
+            override val typeEngine: String,
+            private var liftingCapacity: Int = 0) : Transport() {
+
 
 
     override fun maintenance() {
-        "Техническое обслуживание ТС: Замена расодников ".prettyPrint()
+        printInfo()
+        println("Техническое обслуживание ТС: Замена расодников ")
     }
 
     fun firstPoint() {

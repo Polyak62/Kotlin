@@ -1,5 +1,3 @@
 package ru.tinkoff.oop
 
-class Conductor(val name: String) {
-
-}
+class Conductor(val name: String)

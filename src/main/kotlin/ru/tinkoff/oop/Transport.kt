@@ -1,15 +1,13 @@
 package ru.tinkoff.oop
 
-interface Transport {
-    val model: String
-    val typeEngine: String
+abstract class Transport {
+   abstract val model: String
+   abstract val typeEngine: String
 
-    fun maintenance()
+    abstract fun maintenance()
 
 
-    fun String.prettyPrint() {
-        println("модель: $model, тип двигателя: $typeEngine")
-        println(this)
-        println()
+    fun printInfo() {
+        print("модель: $model, тип двигателя: $typeEngine   ")
     }
 }
