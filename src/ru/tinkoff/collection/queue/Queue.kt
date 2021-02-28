@@ -13,9 +13,10 @@ class Queue<T> {
     fun dequeue(): T {
         if (!list.isEmpty()) {
             return list.removeAt(0)
-        } else {
-            throw Exception("Очередь пуста")
         }
+        throw Exception("Очередь пуста")
     }
+
+
 
 }

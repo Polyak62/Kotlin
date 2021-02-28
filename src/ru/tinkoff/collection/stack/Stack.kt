@@ -11,9 +11,8 @@ class Stack<T> {
 
     fun pop(): T {
         if (list.size > 0) {
-            return list.removeAt(list.size - 1)
-        } else {
-            throw Exception("Стек пуст")
+            return list.removeAt(list.lastIndex)
         }
+            throw Exception("Стек пуст")
     }
 }
