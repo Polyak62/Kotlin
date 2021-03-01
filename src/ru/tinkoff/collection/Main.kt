@@ -7,13 +7,28 @@ import ru.tinkoff.collection.stack.Stack
 
 
 fun main() {
-    var queue = queueOf("one", "two", "three")
-    var stack = stackOf("four", "five", "six")
+    val queue = queueOf("one", "two", "three")
+    val stack = stackOf("four", "five", "six")
 
 
 
     println(queue.dequeue())
+    queue.enqueue("oneOne")
+    queue.enqueue("oneTwo")
+    queue.enqueue("oneThree")
+    println(queue.dequeue())
+    println(queue.dequeue())
+    println(queue.dequeue())
+    println(queue.dequeue())
 
+
+    stack.push("fourOne")
+    stack.push("fourTwo")
+    stack.push("fourThree")
+    stack.push("fourFour")
+    println(stack.pop())
+    println(stack.pop())
+    println(stack.pop())
     println(stack.pop())
 
 
