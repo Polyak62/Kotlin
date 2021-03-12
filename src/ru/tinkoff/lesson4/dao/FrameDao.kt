@@ -1,7 +1,7 @@
 package ru.tinkoff.lesson4.dao
 
 import ru.tinkoff.lesson4.emtity.Frame
-import java.util.*
+
 
 class FrameDao {
     val frames: Map<Int, Frame> = mapOf(
@@ -12,13 +12,8 @@ class FrameDao {
         5 to Frame(5, "steel 18h18", "s")
     )
 
-    fun getAll(): List<Frame> {
-        val list: LinkedList<Frame> = LinkedList()
-        list.addAll(frames.values)
-        return list
-    }
+    fun getAll(): List<Frame> = frames.values.toList()
 
-    fun findByVin(vin: Int): Frame? {
-        return frames.get(vin)
-    }
+
+    fun findByVin(vin: Int): Frame? = frames[vin]
 }

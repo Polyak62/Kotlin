@@ -1,7 +1,7 @@
 package ru.tinkoff.lesson4.dao
 
 import ru.tinkoff.lesson4.emtity.Body
-import java.util.*
+
 
 class BodyDao {
     val bodies: Map<Int, Body> = mapOf(
@@ -12,13 +12,9 @@ class BodyDao {
         5 to Body(5, "black", "minivan")
     )
 
-    fun getAll(): List<Body> {
-        val list: LinkedList<Body> = LinkedList()
-        list.addAll(bodies.values)
-        return list
-    }
 
-    fun findByVin(vin: Int): Body? {
-        return bodies.get(vin)
-    }
+    fun getAll(): List<Body> = bodies.values.toList()
+
+
+    fun findByVin(vin: Int): Body? =  bodies[vin]
 }
