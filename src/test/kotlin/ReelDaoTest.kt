@@ -17,8 +17,10 @@ class ReelDaoTest {
     fun `should search reel by id`() {
         val reel = mockk<ReelDao>()
         every { reel.findId(capture(slotA)) } returns (Reel(1000))
+
         val reel2 = Reel(1000)
         val reel3 = reel.findId(1)
+
         assertEquals(reel2, reel3)
     }
 
@@ -26,7 +28,9 @@ class ReelDaoTest {
     fun `should return null search reel by id`() {
         val reel = mockk<ReelDao>()
         every { reel.findId(capture(slotA)) } returns null
+
         val reel1 = reel.findId(1)
+
         assertEquals(null, reel1)
     }
 }

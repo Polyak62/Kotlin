@@ -17,6 +17,7 @@ class DslTest {
     fun `should return null search reel by id`() {
         val spinning = Spinning(2.4, 15, "kosadaka")
         val reel = Reel(1500)
+
         assertEquals(spinning.connectWithReel(reel),createSpinningWithReel(spinning, reel))
     }
 }

@@ -11,6 +11,7 @@ class SpinningTest {
     @Test(expected = Exception::class)
     fun `connectWithReel should throw exception on null `(){
         val spinning = Spinning(2.7, 20, "shimano")
+
         spinning.connectWithReel(null)
     }
 
@@ -18,6 +19,7 @@ class SpinningTest {
     fun `connectWithReel should not throw exception on reel` (){
         val spinning = Spinning(2.7, 20, "shimano")
         val reel = Reel(1500)
+
         spinning.connectWithReel(reel)
     }
 }
