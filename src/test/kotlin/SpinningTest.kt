@@ -13,6 +13,8 @@ class SpinningTest {
         val spinning = Spinning(2.7, 20, "shimano")
 
         spinning.connectWithReel(null)
+
+     // assert()
     }
 
     @Test
@@ -21,5 +23,7 @@ class SpinningTest {
         val reel = Reel(1500)
 
         spinning.connectWithReel(reel)
+
+        //assert()
     }
 }
