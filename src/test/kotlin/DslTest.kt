@@ -1,6 +1,7 @@
 import io.mockk.every
 import io.mockk.junit5.MockKExtension
 import io.mockk.mockk
+import junit.framework.Assert.assertTrue
 import org.junit.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import ru.tinkoff.lesson.dsl.asList
@@ -30,7 +31,8 @@ class DSLTest {
             Game("444", 444, 444),
             Game("555", 555, 555)
         )
-        assert(list.size == 5)
+
+        assertTrue(list.size == 5)
     }
 
     @Test
@@ -46,8 +48,9 @@ class DSLTest {
             this.gpu = game.gpu
             this.cpu = game.cpu
         }
-        assert(result.name.equals("Far cry"))
-        assert(result.cpu == game.cpu)
-        assert(result.gpu == game.gpu)
+
+        assertTrue(result.name.equals("Far cry"))
+        assertTrue(result.cpu == game.cpu)
+        assertTrue(result.gpu == game.gpu)
     }
 }
