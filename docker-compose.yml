@@ -3,64 +3,12 @@ services:
   mysql:
     image: mysql:5.7
     container_name: mysql
-    networks:
-      - common-network
     environment:
-      MYSQL_DATABASE: ${mysql_database}
-      MYSQL_ROOT_PASSWORD: ${mysql_password}
+      MYSQL_DATABASE: mem
+      MYSQL_ROOT_PASSWORD: 62146214
     ports:
-      - '${mysql_port}:3306'
+      - '3306:3306'
     expose:
-      - '${mysql_port}'
+      - '3306'
     volumes:
       - ./mysql-data:/var/lib/mysql
-  first:
-    build:
-      context: ./firstApplication/
-    depends_on:
-      - mysql
-      - second
-    restart: always
-    environment:
-      SPRING_DATASOURCE_URL: ${mysql_url}
-      SPRING_DATASOURCE_USERNAME: ${mysql_user}
-      SPRING_DATASOURCE_PASSWORD: ${mysql_password}
-      SECOND_URL: ${second_url}
-    networks:
-      - common-network
-    ports:
-      - '${first_port}:8080'
-    expose:
-      - '${first_port}'
-  second:
-    build:
-      context: ./secondApplication/
-    depends_on:
-      - postgres
-    container_name: second
-    environment:
-      SPRING_DATASOURCE_URL: ${postgres_url}
-      SPRING_DATASOURCE_USERNAME: ${postgres_user}
-      SPRING_DATASOURCE_PASSWORD: ${postgres_password}
-    restart: always
-    networks:
-      - common-network
-    ports:
-      - '${second_port}:9090'
-    expose:
-      - ${second_port}
-  postgres:
-    image: postgres:10.5
-    environment:
-      POSTGRES_USER: ${postgres_user}
-      POSTGRES_PASSWORD: ${postgres_password}
-    container_name: postgres
-    networks:
-      - common-network
-    ports:
-      - '${postgres_port}:5432'
-    volumes:
-      - ./postgres-data:/var/lib/postgresql/data
-networks:
-  common-network:
-    driver: bridge
